@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Typography, CircularProgress, Box } from '@mui/material';
+import { Typography, CircularProgress, Box, Card, CardContent, Button } from '@mui/material';
 import './styles/ImageUpload.css';
 
 function ImageUpload() {
@@ -13,8 +13,8 @@ function ImageUpload() {
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     setImage(file);
-    setImageURL(URL.createObjectURL(file));  // Show image preview
-    setLoading(true);  // Show loading spinner while uploading
+    setImageURL(URL.createObjectURL(file));
+    setLoading(true);
 
     const formData = new FormData();
     formData.append('image', file);
@@ -26,55 +26,53 @@ function ImageUpload() {
         },
       });
       setMessage(res.data.message);
-      setDescription(res.data.description);  // Show description
+      setDescription(res.data.description);
     } catch (err) {
       setMessage('Failed to upload image');
     } finally {
-      setLoading(false);  // Hide loading spinner
+      setLoading(false);
     }
   };
 
   return (
     <Box className="image-upload-container">
-      <Typography variant="h4" gutterBottom>
-        Upload an Image
-      </Typography>
+      <Card sx={{ maxWidth: 600, margin: 'auto', mt: 5, p: 2 }}>
+        <CardContent>
+          <Typography variant="h4" gutterBottom>
+            Upload and Describe an Image
+          </Typography>
+          <label htmlFor="image-upload" className="image-upload-label">
+            Choose an Image
+          </label>
+          <input
+            id="image-upload"
+            type="file"
+            accept="image/*"
+            className="image-upload-input"
+            onChange={handleImageChange}
+          />
 
-      {/* Custom styled label for file input */}
-      <label htmlFor="image-upload" className="image-upload-label">
-        Choose an Image
-      </label>
-      <input
-        id="image-upload"
-        type="file"
-        accept="image/*"
-        className="image-upload-input"  // Hidden input
-        onChange={handleImageChange}  // Automatically upload on image selection
-      />
+          {imageURL && (
+            <Box sx={{ mt: 3 }}>
+              <img src={imageURL} alt="Uploaded" className="image-upload-preview" />
+            </Box>
+          )}
 
-      {/* Show the uploaded image preview */}
-      {imageURL && (
-        <Box sx={{ mt: 3 }}>
-          <img src={imageURL} alt="Uploaded" className="image-upload-preview" />
-        </Box>
-      )}
+          {loading && <CircularProgress size={24} sx={{ mt: 2 }} />}
 
-      {/* Show a loading spinner while uploading */}
-      {loading && <CircularProgress size={24} />}
+          {message && (
+            <Typography className="image-upload-message" variant="body1" sx={{ mt: 2 }}>
+              {message}
+            </Typography>
+          )}
 
-      {/* Show success/failure message */}
-      {message && (
-        <Typography className="image-upload-message" variant="body1">
-          {message}
-        </Typography>
-      )}
-
-      {/* Show the description returned from the backend */}
-      {description && (
-        <Typography className="image-upload-description">
-          <strong>Description:</strong> {description}
-        </Typography>
-      )}
+          {description && (
+            <Typography className="image-upload-description" sx={{ mt: 2 }}>
+              <strong>Description:</strong> {description}
+            </Typography>
+          )}
+        </CardContent>
+      </Card>
     </Box>
   );
 }

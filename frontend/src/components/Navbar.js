@@ -1,29 +1,26 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import './styles/Navbar.css';  // Import the CSS file
+import './styles/Navbar.css';
 
 function Navbar() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" className="navbar">
       <Toolbar>
-        {/* Branding */}
-        <Typography className="navbar-brand" component={Link} to="/" sx={{ textDecoration: 'none' }}>
+        <Typography variant="h6" className="navbar-brand">
           AI Image Describer
         </Typography>
-
-        {/* Navbar Buttons */}
-        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end' }}>
-          <Button className="navbar-button" component={Link} to="/" sx={{ color: 'white' }}>
+        <Box className="navbar-links">
+          <Button className="navbar-button" component={Link} to="/">
             Home
           </Button>
-          <Button className="navbar-button" component={Link} to="/dashboard" sx={{ color: 'white' }}>
+          <Button className="navbar-button" component={Link} to="/dashboard">
             Dashboard
           </Button>
-          <Button className="navbar-button" component={Link} to="/history" sx={{ color: 'white' }}>
+          <Button className="navbar-button" component={Link} to="/history">
             History
           </Button>
-          <Button className="navbar-button" component={Link} to="/pricing" sx={{ color: 'white' }}>
+          <Button className="navbar-button" component={Link} to="/pricing">
             Pricing
           </Button>
         </Box>

@@ -1,19 +1,14 @@
-/* Container styling */
 .image-upload-container {
-  max-width: 600px;
-  margin: 0 auto;
   text-align: center;
-  margin-top: 20px;
+  padding: 20px;
 }
 
-/* Style the hidden input */
 .image-upload-input {
-  display: none; /* Hide the default file input */
+  display: none;
 }
 
-/* Custom label as the upload button */
 .image-upload-label {
-  background-color: #1976d2; /* Primary blue color */
+  background-color: #1976d2;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -24,10 +19,9 @@
 }
 
 .image-upload-label:hover {
-  background-color: #115293; /* Darker blue on hover */
+  background-color: #115293;
 }
 
-/* Image preview */
 .image-upload-preview {
   margin-top: 20px;
   max-width: 100%;
@@ -35,11 +29,11 @@
 
 .image-upload-message {
   margin-top: 20px;
-  color: #1976d2; /* Material UI Primary Color */
+  color: #1976d2;
 }
 
 .image-upload-description {
   margin-top: 10px;
-  font-size: 0.9rem;
-  color: #757575;
+  font-size: 1rem;
+  color: #424242;
 }
