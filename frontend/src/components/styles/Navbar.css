@@ -1,0 +1,19 @@
+/* Navbar Styles */
+
+.navbar-brand {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  color: white;  /* Make sure the color is visible */
+  text-decoration: none;
+}
+
+.navbar-button {
+  color: white !important;  /* Ensure the button text is white */
+  margin-right: 10px;
+  text-transform: none;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: inherit;
+}
