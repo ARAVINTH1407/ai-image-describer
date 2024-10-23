@@ -1,9 +1,9 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
 import History from './pages/History';
-import Pricing from './pages/Pricing';
+import Dashboard from './pages/Dashboard';  // Re-add Dashboard
+import Pricing from './pages/Pricing';      // Re-add Pricing
 import Navbar from './components/Navbar';
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />  {/* Re-add Dashboard route */}
         <Route path="/history" element={<History />} />
-        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/pricing" element={<Pricing />} />      {/* Re-add Pricing route */}
       </Routes>
     </div>
   );

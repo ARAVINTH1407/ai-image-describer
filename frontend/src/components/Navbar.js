@@ -1,26 +1,25 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import './styles/Navbar.css';
 
 function Navbar() {
   return (
-    <AppBar position="static" className="navbar">
+    <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" className="navbar-brand">
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
           AI Image Describer
         </Typography>
-        <Box className="navbar-links">
-          <Button className="navbar-button" component={Link} to="/">
+        <Box>
+          <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-          <Button className="navbar-button" component={Link} to="/dashboard">
+          <Button color="inherit" component={Link} to="/dashboard">
             Dashboard
           </Button>
-          <Button className="navbar-button" component={Link} to="/history">
+          <Button color="inherit" component={Link} to="/history">
             History
           </Button>
-          <Button className="navbar-button" component={Link} to="/pricing">
+          <Button color="inherit" component={Link} to="/pricing">
             Pricing
           </Button>
         </Box>

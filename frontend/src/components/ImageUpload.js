@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Typography, CircularProgress, Box, Card, CardContent, Button } from '@mui/material';
+import { Typography, CircularProgress, Box, Card, CardContent, Tooltip } from '@mui/material';
 import './styles/ImageUpload.css';
 
 function ImageUpload() {
@@ -41,9 +41,11 @@ function ImageUpload() {
           <Typography variant="h4" gutterBottom>
             Upload and Describe an Image
           </Typography>
-          <label htmlFor="image-upload" className="image-upload-label">
-            Choose an Image
-          </label>
+          <Tooltip title="Choose an image to upload and describe">
+            <label htmlFor="image-upload" className="image-upload-label">
+              Choose an Image
+            </label>
+          </Tooltip>
           <input
             id="image-upload"
             type="file"
